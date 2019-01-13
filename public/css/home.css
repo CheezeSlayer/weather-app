@@ -1,0 +1,30 @@
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Trebuchet MS";
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1.8em;
+    letter-spacing: .04em;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+.weather-form {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+.weather-form input[type="text"] {
+  padding: 14px 20px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  outline: none;
+}
+.weather-form input[type="submit"] {
+  padding: 14px 20px;
+  font-size: 20px;
+  width: 30%;
+}
