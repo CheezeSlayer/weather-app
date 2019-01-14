@@ -1,6 +1,8 @@
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/getWeather.js"></script>
+  <script src="/js/resultsDisplay.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       $("#navbar").load("/model/index.html");
@@ -15,11 +17,23 @@
 <body>
 <div class="weather-container">
     <div class="weather-form">
-      <form action="/get-location.js">
+      <form id="usrForm">
         <h1>Enter an Address</h1><br>
         <input type="text" id="address" value="" placeholder="Location"><br><br>
-        <input type="submit" value="Go">
       </form>
+      <button id="submitbtn" onclick="getWeather(); openCanvas()">Go</button>
+    </div>
+
+    <div id="results" class="canvas">
+      <div class="results-location">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCanvas()">&times;</a>
+        <h1 id="country"></h1><br>
+        <h1 id="state"></h1><br>
+        <h1 id="city"></h1><br>
+      </div>
+      <div class="results-summary">
+        <h1 id="summary"></h1>
+      </div>
     </div>
 </div>
 </body>

@@ -23,8 +23,54 @@
   border-radius: 10px;
   outline: none;
 }
-.weather-form input[type="submit"] {
+#submitbtn {
   padding: 14px 20px;
   font-size: 20px;
+  width: 30%;
+}
+
+.canvas {
+  height: 100%;
+  width: 0;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.canvas a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.canvas a:hover {
+  color: #f1f1f1;
+}
+
+.canvas .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .canvas {padding-top: 15px;}
+  .canvas a {font-size: 18px;}
+}
+
+.results-location {
+  margin: auto;
+  width: 30%;
+}
+.results-summary {
+  margin: auto;
   width: 30%;
 }
