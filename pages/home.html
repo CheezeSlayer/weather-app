@@ -21,21 +21,44 @@
         <h1>Enter an Address</h1><br>
         <input type="text" id="address" value="" placeholder="Location"><br><br>
       </form>
-      <button id="submitbtn" onclick="getWeather(); openCanvas()">Go</button>
+      <button id="submitbtn" onclick="getWeather(); setIcon(); openCanvas();">Go</button>
     </div>
 
     <div id="results" class="canvas">
-      <div class="results-location">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeCanvas()">&times;</a>
-        <h1 id="country"></h1><br>
-        <h1 id="state"></h1><br>
-        <h1 id="city"></h1><br>
-      </div>
       <div class="results-summary">
-        <h1 id="summary"></h1>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCanvas()">&times;</a>
+        <h1 id="location-header">#</h1>
+        <div class="temp-sum">
+          <div class="temp-ctnr">
+            <h2 id="temp">#</h2>
+            <h2 id="appString">Feels Like: </h2>
+            <h2 id="apptemp">#</h2>
+          </div>
+          <div class="summary-ctnr">
+            <h1 id="summary">#</h1>
+            <canvas id="icon" class="icon"></canvas>
+          </div>
+        </div>
       </div>
     </div>
 </div>
 </body>
-
 </html>
+
+<script src="/js/skycons.js"></script>
+<script>
+var skycons = new Skycons({
+  "color":"white"
+})
+
+function setIcon () {
+    skycons.remove("icon");
+    setTimeout(function(){
+      var iconName = String(document.getElementById("icon").getAttribute("class"));
+      //console.log(iconName);
+      skycons.add("icon", iconName);
+      skycons.play();
+    }, 1000);
+
+}
+</script>

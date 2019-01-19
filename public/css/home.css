@@ -66,11 +66,46 @@
   .canvas a {font-size: 18px;}
 }
 
-.results-location {
-  margin: auto;
-  width: 30%;
-}
 .results-summary {
   margin: auto;
-  width: 30%;
+  width: 50%;
+  border: 5px solid white;
+  border-radius: 25px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.temp-sum {
+
+}
+.temp-ctnr {
+  display: inline-block;
+  padding-top: 30px;
+}
+.summary-ctnr {
+  display: inline-block;
+}
+
+#location-header {
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+}
+#summary {
+  font-size: 12px;
+}
+#temp {
+  font-size: 50px;
+  color: yellow;
+}
+#appString {
+  font-size: 12px;
+  padding-top: 10px;
+}
+#appTemp {
+  font-size: 30px;
+  color: lightgrey;
+}
+#icon {
+  width: 150px;
+  height: auto;
 }
