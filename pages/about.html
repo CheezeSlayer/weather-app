@@ -1,0 +1,82 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#navbar").load("/model/index.html");
+    });
+  </script>
+</head>
+
+<link rel="stylesheet" href="/css/index.css">
+<div id="navbar"></div>
+
+<link rel="stylesheet" href="/css/about.css">
+<body><br><br>
+  <div class="about-container">
+    <div class="title-container">
+      <h1 id="about-header">About My Weather App</h1>
+      <div class="api-container">
+        <h1 id="api-header">API's Used</h1>
+        <h2>MapQuest Geocoding API:</h2>
+          <h2>http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey}&location=${address}</h2><br>
+        <h2>REST Countries: </h2>
+          <h2>https://restcountries.eu/rest/v2/alpha/${country}</h2><br>
+        <h2>Dark Sky Weather API: </h2>
+          <h2>https://api.darksky.net/forecast/${apiKey}/${latitude},${longitude}</h2><br>
+      </div><br>
+      <div class="resource-container">
+        <h2 id="resource-header">Weather Animations</h2>
+        <h2>Skycons: https://darkskyapp.github.io/skycons/</h2>
+        <figure class="icons">
+        <canvas id="clear-day" width="64" height="64">
+        </canvas>
+
+        <canvas id="clear-night" width="64" height="64">
+        </canvas>
+
+        <canvas id="partly-cloudy-day" width="64" height="64">
+        </canvas>
+
+        <canvas id="partly-cloudy-night" width="64" height="64">
+        </canvas>
+
+        <canvas id="cloudy" width="64" height="64">
+        </canvas>
+
+        <canvas id="rain" width="64" height="64">
+        </canvas>
+
+        <canvas id="sleet" width="64" height="64">
+        </canvas>
+
+        <canvas id="snow" width="64" height="64">
+        </canvas>
+
+        <canvas id="wind" width="64" height="64">
+        </canvas>
+
+        <canvas id="fog" width="64" height="64">
+        </canvas>
+      </figure>
+      </div>
+    </div>
+  </div>
+</html>
+
+<script src="/js/skycons.js"></script>
+<script>
+var icons = new Skycons({
+  "color":"white"
+});
+var list  = [
+ "clear-day", "clear-night", "partly-cloudy-day",
+ "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+ "fog"
+]
+var i;
+for(i = list.length; i--; ){
+ icons.set(list[i], list[i]);
+}
+icons.play();
+</script>

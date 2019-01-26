@@ -22,10 +22,15 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
   res.sendfile('pages/home.html', {
   });
-})
+});
 
 app.get('/pages/home.html', (req, res) => {
   res.sendfile('pages/home.html', {
+  });
+});
+
+app.get('/pages/about.html', (req, res) => {
+  res.sendfile('pages/about.html', {
   });
 });
 

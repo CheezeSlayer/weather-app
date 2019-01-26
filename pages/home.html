@@ -19,9 +19,9 @@
     <div class="weather-form">
       <form id="usrForm">
         <h1>Enter an Address</h1><br>
-        <input type="text" id="address" value="" placeholder="Location"><br><br>
+        <input type="text" id="address" value="" placeholder="Street, City, State, Country"><br><br>
       </form>
-      <button id="submitbtn" onclick="getWeather(); setIcon(); openCanvas();">Go</button>
+      <button id="submitbtn" onclick="setWeather(); openCanvas();">Go</button>
     </div>
 
     <div id="results" class="canvas">
@@ -50,7 +50,56 @@
 var skycons = new Skycons({
   "color":"white"
 })
+var runAPIs;
+var setIcon;
+var apiPromise = false;
 
+runAPIs = function(){
+  return new Promise(function(resolve, reject) {
+    getWeather();
+    console.log(document.getElementById("location-header").innerHTML);
+    setTimeout(function(){
+      console.log(document.getElementById("location-header").innerHTML);
+      if(document.getElementById("location-header").innerHTML != "#" ){
+        apiPromise = true;
+        resolve("Ran getWeather()");
+      }
+      else {
+        reject("getWeather() failed.")
+      }
+    }, 2000);
+  });
+}
+
+setIcon = function() {
+  return new Promise(function(resolve, reject){
+    if(apiPromise == true){
+      skycons.remove("icon");
+      var iconName = String(document.getElementById("icon").getAttribute("class"));
+      //console.log(iconName);
+      skycons.add("icon", iconName);
+      skycons.play();
+      resolve("Icon Set");
+    }else{
+      reject("Set Icon Failed");
+    }
+  })
+}
+
+function setWeather() {
+  runAPIs()
+  .then(function(value){
+    console.log(value);
+    return setIcon();
+  })
+  .then(function(value){
+    console.log(value);
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+}
+/*
 function setIcon () {
     skycons.remove("icon");
     setTimeout(function(){
@@ -58,7 +107,8 @@ function setIcon () {
       //console.log(iconName);
       skycons.add("icon", iconName);
       skycons.play();
-    }, 3000);
+    }, 2000);
 
 }
+*/
 </script>

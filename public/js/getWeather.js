@@ -95,8 +95,9 @@ var weather;
           document.getElementById("apptemp").innerHTML += "&#8451";
           icon = wthrobj.currently.icon;
           canvasID = document.getElementById("icon");
-          console.log(icon);
+          //console.log(icon);
           var oldClass = canvasID.getAttribute("class");
+          //console.log(canvasID.getAttribute("class"));
           document.getElementById("icon").classList.remove(oldClass);
           document.getElementById("icon").classList.add(icon);
           resolve("Got weather");
@@ -109,10 +110,12 @@ var weather;
     })
 }
 
+
 function getWeather(){
+
   coordinates()
   .then(function(value){
-    console.log("step 1: ", value);
+    console.log("step 1:", value);
     return nation()
   })
   .then(function(value){
@@ -120,12 +123,17 @@ function getWeather(){
     return weather()
   })
   .then(function(value){
-    console.log("step 3: ", value);
+    console.log("step 3:", value);
+  })
+  .then(function(){
+    return true;
   })
   .catch(function(error){
     console.log(error);
+    return false;
   })
 }
+
 /*
 function getWeather() {
   var input = document.getElementById("address")
